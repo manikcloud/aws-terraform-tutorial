@@ -1,0 +1,41 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_codecommit_repository.test (expand)" [label = "aws_codecommit_repository.test", shape = "box"]
+		"[root] aws_iam_user.user (expand)" [label = "aws_iam_user.user", shape = "box"]
+		"[root] aws_iam_user_policy.usr_ro (expand)" [label = "aws_iam_user_policy.usr_ro", shape = "box"]
+		"[root] aws_iam_user_ssh_key.user (expand)" [label = "aws_iam_user_ssh_key.user", shape = "box"]
+		"[root] aws_key_pair.ssh_key (expand)" [label = "aws_key_pair.ssh_key", shape = "box"]
+		"[root] local_file.file_config (expand)" [label = "local_file.file_config", shape = "box"]
+		"[root] output.code_commit_repo" [label = "output.code_commit_repo", shape = "note"]
+		"[root] output.file_content" [label = "output.file_content", shape = "note"]
+		"[root] output.iam_ssh_key" [label = "output.iam_ssh_key", shape = "note"]
+		"[root] output.iam_user" [label = "output.iam_user", shape = "note"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"]" [label = "provider[\"registry.terraform.io/hashicorp/local\"]", shape = "diamond"]
+		"[root] aws_codecommit_repository.test (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_iam_user.user (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_iam_user_policy.usr_ro (expand)" -> "[root] aws_iam_user.user (expand)"
+		"[root] aws_iam_user_ssh_key.user (expand)" -> "[root] aws_iam_user.user (expand)"
+		"[root] aws_iam_user_ssh_key.user (expand)" -> "[root] aws_key_pair.ssh_key (expand)"
+		"[root] aws_key_pair.ssh_key (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] local_file.file_config (expand)" -> "[root] aws_iam_user_ssh_key.user (expand)"
+		"[root] local_file.file_config (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
+		"[root] output.code_commit_repo" -> "[root] aws_codecommit_repository.test (expand)"
+		"[root] output.file_content" -> "[root] local_file.file_config (expand)"
+		"[root] output.iam_ssh_key" -> "[root] aws_iam_user_ssh_key.user (expand)"
+		"[root] output.iam_user" -> "[root] aws_iam_user.user (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_codecommit_repository.test (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_user_policy.usr_ro (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_user_ssh_key.user (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)" -> "[root] local_file.file_config (expand)"
+		"[root] root" -> "[root] output.code_commit_repo"
+		"[root] root" -> "[root] output.file_content"
+		"[root] root" -> "[root] output.iam_ssh_key"
+		"[root] root" -> "[root] output.iam_user"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)"
+	}
+}
+

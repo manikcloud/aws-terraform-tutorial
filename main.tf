@@ -7,11 +7,11 @@ resource "aws_codecommit_repository" "test" {
 
 resource "aws_key_pair" "ssh_key" {
   key_name   = "iam_key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAu+YS/tWeq5sNI5NtlIxH5J5d1ijZ98YyiE4WFeT6HQqAUfRsid0ANgMVwzJlY18wQDAeUdGPE3W4ijblaeKJfU04y2ycBUzm4GEEx/GlhPpQQsSfe7cZ4EDR7HTeqYAPwyJfmZEc7Md5zjzF/bQFMbau5mEexvWkn3ZmqoHu9tN2FIGWtudRRygiN+L2yybuhHj31n2IGo6XHowoibd8wGq0l/SSHp5PRz2Xyuy1PMeR+LmtGvmDiC4oCV626eEozF2jGbHfz6Pbw3dmAsbCiDSFHmXMfzMgxpy/pvZ2SAvU05JmQxO1abv5ukrnZFYa0Fmz7XDWQ3hF2NbCOCS3 root@ip-172-31-93-193.ec2.internal"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDF8yQCsdv/nNB0PBA1qCbp8SDws1Y8a7nHPikhJtqwbg0sL9GVjPO2zMEnWQRzcMD8kuvTbJf4GfaC1wKbALXUMeAR6Z8RGVzLXH3zJgiXdlYnM/VcFqEe82RBAZFV9l2S1BbpdrhsvbhusZ5QfnWoS0kmUeHXgU8HPlYmEU5i+YjXQ4T2kEiMLwuUbfTMZDWL6XHrGwG8zRtRFM9DzV1Lq+Sa2qurey6U9XsCT0qF18YyAlFAvpTBKMmQXquZI/QcBZPGllwWhBIiVHRKeA0HtYY9vCzsKvimnccQ5c23nmFXwQK/Odabwd1eTT4Pa9tdoBIu4pGhvMWGv/Aua4JZ root@ip-172-31-93-193.ec2.internal"
 }
 
 resource "aws_iam_user" "user" {
-  name = "test-user"
+  name = "code_commit_user"
   path = "/"
 }
 
@@ -41,10 +41,3 @@ resource "aws_iam_user_ssh_key" "user" {
   public_key = aws_key_pair.ssh_key.public_key
 }
 
-
-
-output "iam_ssh_key" {
-  value       = aws_iam_user_ssh_key.user.id
-  description = "ssh key id"
-
-}
