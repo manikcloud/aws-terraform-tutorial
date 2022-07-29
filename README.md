@@ -1,8 +1,11 @@
-# Terraform DevOps Learning Tutorial 
+## Terraform DevOps Learning Tutorial 
 
-- Step1: Launch EC2 VM
+# Objective: To create a Code Commit repo with help of terraform code. 
+
+## Pre-requisit
+- Step 1: Launch EC2 VM
 - Step 2: Install Git & genrate key pair
-- step 3: Add public key to Github
+- Step 3: Add public key to Github
 - Step 4: Pull the Repo git@github.com:manikcloud/aws-terraform-tutorial.git
 
 ```
