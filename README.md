@@ -2,7 +2,7 @@
 
 # Objective: To create a Code Commit repo with help of terraform code. 
 
-## Pre-requisit
+## Pre-requisite
 - Step 1: Launch EC2 VM
 - Step 2: Install Git & genrate key pair
 - Step 3: Add public key to Github
