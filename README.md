@@ -19,13 +19,23 @@ cd aws-terraform-tutorial/
 
 ls -a
 ```
-# Terraform installation 
+# Terraform installation on Amazon linux
 ```
 sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 sudo yum -y install terraform
 
 
+```
+#Terraform installation on UBUBNTU 20.04
+
+```
+
+apt-get install wget curl unzip software-properties-common gnupg2 -y
+curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
+apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+apt-get update -y
+apt-get install terraform -y
 ```
 # The file provisioner
 ```
